@@ -1,0 +1,15 @@
+<h3>{{movie.tmdb.title}}</h3>
+<img ng-src="{{tMDb.imageUrl(movie.tmdb.backdrop_path, 'w780')}}" />
+<p>Add {{movie.tmdb.title}} to</p>
+
+<div class="modal-bottom" ng-hide="done || process">
+	<button class="button success" ng-click="addJournal()">Journal</button>
+	<button class="button" ng-disabled="true">Watchlist</button>
+	<button class="button alert" ng-click="cancel()">Cancel</button>
+</div>
+<div class="modal-bottom" ng-show="process">
+	<div mj-spinner></div>
+</div>
+<div class="modal-bottom" ng-show="done">
+	<h5>Successfully Added</h5>
+</div>

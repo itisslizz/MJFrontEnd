@@ -1,18 +1,38 @@
-<nav class="top-bar row" ng-controller="NavbarCtrl">
+<nav class="top-bar" data-topbar role="navigation" ng-controller="NavbarCtrl">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="https://github.com/Swiip/generator-gulp-angular">Gulp & Angular</a></h1>
+      <h1><a href="#/">MovieJournal</a></h1>
     </li>
   </ul>
 
   <section class="top-bar-section">
     <ul class="right">
-      <li class="active"><a ng-href="#">Home</a></li>
-      <li><a ng-href="#">About</a></li>
-      <li><a ng-href="#">Contact</a></li>
+      <li class="active"><a ng-href="#/">Home</a></li>
+      <li><a ng-href="#/user/{{user.pk}}/journal">My Journal</a></li>
     </ul>
     <ul class="left">
-      <li><a ng-href="#">Current date: {{ date | date:'yyyy-MM-dd' }}</a></li>
+      <li class="has-dropdown has-form">
+        <div class="row collapse">
+          <div class="large-12 small-12 columns">
+            <input type="text" ng-model="query" ng-change="searchFor()" placeholder="Find Stuff">
+          </div>
+          <!--<div class="large-4 small-3 columns">
+            <a href="#" dropdown-toggle="#dropdown-search" class="button expand">Search</a>
+          </div>-->
+        </div>
+        <ul class="dropdown">
+          <li ng-repeat="movie in movieResults | limitTo: 3">
+            <a href="#/movie/{{movie.id}}">{{movie.title}}</a>
+          </li>
+
+          <!--<li ng-repeat="star in starResults | limitTo: 3">
+            <a href="#">{{star.name}}</a>
+          </li>-->
+          <li ng-repeat="user in userResults | limitTo: 3">
+            <a href="#/user/{{user.pk}}/journal">{{user.fields.username}}</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </section>
 </nav>

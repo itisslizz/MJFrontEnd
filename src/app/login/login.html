@@ -1,0 +1,31 @@
+<div class="container">
+	<h1>{{title}}</h1>
+	<div class="row">
+		<div class="large-4 columns">
+			<form ng-submit="login()">
+				<div class="row">
+				    <div class="large-12 columns">
+				      	<label>Username
+				        	<input ng-model="username" type="text" placeholder="username" />
+				      	</label>
+		    		</div>
+		  		</div>
+				<div class="row">
+				    <div class="large-12 columns">
+				      	<label>Password
+				        	<input ng-model="password" type="password" placeholder="password" />
+				      	</label>
+		    		</div>
+		  		</div>
+		  		<div class="row">
+		  			<div class="large-12 columns">
+		  				<input type="submit" role="button" aria-label="submit form" href="#" class="button"
+		  				value="Login" />
+					</div>
+		  		</div>
+		  	</form>	
+		  	<h3>No Account? <a href="#/register">Register Here</a></h3>
+		</div>
+
+	</div>
+</div>
