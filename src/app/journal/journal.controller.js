@@ -10,39 +10,16 @@ angular.module('newMj')
   	  	$scope.journal = data;
   	  });
 
-      
+      $scope.openDeleteModal = function (movie) {
+        var modalInstance = $rootScope.openDelete(movie);
+
+        modalInstance.result.then(function (type) {
+          if (type==='Journal')
+            $scope.journal.results.splice(
+              $scope.journal.results.indexOf(movie), 1);
+        });
+      };
+
       $scope.tMDb = tMDb;
-      
-
-      $scope.openDelete = function(movie) {
-        var modalInstance = $modal.open({
-          templateUrl: 'app/components/modals/delete/deleteModal.html',
-          controller: 'DeleteModalCtrl',
-          resolve: {
-            movie: function () {
-              return movie;
-            },
-            type: function () {
-              return 'Journal';
-            }
-          }
-        });
-
-        modalInstance.result.then(function (deleted) {
-          $scope.journal.results.splice($scope.journal.results.indexOf(movie), 1);
-        });
-      };
-
-      $scope.openTrailer = function(movie) {
-        var modalInstance = $modal.open({
-          templateUrl: 'app/components/modals/trailer/trailerModal.html',
-          controller: 'TrailerModalCtrl',
-          resolve: {
-            movie: function () {
-              return movie;
-            }
-          }
-        });
-      };
 
   });

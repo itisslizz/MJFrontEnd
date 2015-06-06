@@ -1,4 +1,4 @@
-<div ng-hide="done">
+<div>
 	<h3>{{movie.tmdb.title}}</h3>
 	<img ng-src="{{tMDb.imageUrl(movie.tmdb.backdrop_path, 'w780')}}" />
 	<p>Do you really want to delete <strong>{{movie.tmdb.title}}</strong> from your {{type}}?</p>
@@ -11,4 +11,4 @@
 
 <div mj-spinner ng-show="process" class="modal-bottom"></div>
 
-<div ng-show="done" class="modal-bottom message"><h3>{{movie.tmdb.title}} successfully deleted.</h3></div
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

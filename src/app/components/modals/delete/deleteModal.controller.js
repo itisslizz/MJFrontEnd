@@ -11,7 +11,7 @@ angular.module('newMj')
 		.success(function() {
 			$scope.process = false;
 			$scope.done = true;
-			$modalInstance.close(true);
+			$modalInstance.close(type);
 		});
 	};
 

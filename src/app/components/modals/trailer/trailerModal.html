@@ -1,4 +1,7 @@
 <h3>{{movie.tmdb.title}} - Trailer</h3>
-<div class="trailer-container">
+<h4 ng-show="noTrailer">No Trailer Available</h4>
+<div ng-hide="noTrailer" class="trailer-container">
+
 	<iframe ng-src="{{trailerSource}}" frameborder="0" width="550" height="281" allowfullscreen></iframe>
 </div>
+<a class="close-reveal-modal" ng-click="cancel()">&#215;</a>

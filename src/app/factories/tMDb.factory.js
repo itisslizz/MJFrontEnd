@@ -6,6 +6,8 @@ angular.module('newMj')
 			baseUrl = 'http://api.themoviedb.org/3/';
 		return {
 			imageUrl : function(url, quality) {
+				if (url===undefined)
+					return 'http://sierrafire.cr.usgs.gov/images/loading.gif'
 				return imgBaseUrl + quality + url;
 			},
 			searchMovie : function(query) {

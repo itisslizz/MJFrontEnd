@@ -10,11 +10,14 @@ angular.module('newMj')
 		.success(function() {
 			$scope.process = false;
 			$scope.done = true;
-			$timeout(function () {$modalInstance.close(true)} ,4000);
 		});
 	};
 
 	$scope.cancel = function() {
 		$modalInstance.dismiss('cancel');
+	};
+
+	$scope.ok = function() {
+		$modalInstance.close(true);
 	};
 });
