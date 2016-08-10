@@ -10,9 +10,9 @@ angular.module('newMj')
 			var req = {
 				method: 'POST',
 				url: 'http://localhost:8000/register/',
-			 	data: { u: username,
+			 	data: JSON.stringify({ u: username,
 			 			p: password,
-			 			e: email },
+			 			e: email }),
 			 	headers: {'Content-Type': 'application/json'}
 			};
 			return $http(req);
@@ -23,10 +23,10 @@ angular.module('newMj')
 			var req = {
 				method: 'POST',
 				url: 'http://localhost:8000/login/',
-				data: { u: username,
+				data: JSON.stringify({ u: username,
 						p: password
-					},
-				headers: {'Content-Type': 'application/json'}
+					}),
+				headers: {'Content-Type': 'application/json; charset=utf-8'}
 			};
 			return $http(req);
 		};
@@ -48,7 +48,7 @@ angular.module('newMj')
 			var req = {
 				method: 'POST',
 				url: baseUrl + 'follow/',
-				data: {user_id: userId},
+				data: JSON.stringify({user_id: userId}),
 				headers: {'Content-Type': 'application/json'}
 			};
 			return $http(req);
@@ -71,7 +71,7 @@ angular.module('newMj')
 			var req = {
 		        method: 'POST',
 		        url: baseUrl + 'screening/',
-		        data: { movie_id: movieId},
+		        data: JSON.stringify({ movie_id: movieId}),
 		        headers: {'Content-Type': 'application/json'}
 		    };
       		return $http(req);
