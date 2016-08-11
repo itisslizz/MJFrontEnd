@@ -11,7 +11,7 @@ angular.module('newMj')
   	  });
 
       $scope.openDeleteModal = function (movie) {
-        var modalInstance = $rootScope.openDelete(movie);
+        var modalInstance = $rootScope.openDelete(movie, 'Journal');
 
         modalInstance.result.then(function (type) {
           if (type==='Journal')

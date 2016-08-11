@@ -7,12 +7,21 @@ angular.module('newMj')
 	$scope.tMDb = tMDb;
 	$scope.delete = function() {
 		$scope.process = true;
-		mjBackend.deleteScreening(movie.info.pk)
-		.success(function() {
-			$scope.process = false;
-			$scope.done = true;
-			$modalInstance.close(type);
-		});
+		if (type === "Journal") {
+			mjBackend.deleteScreening(movie.info.pk)
+			.success(function() {
+				$scope.process = false;
+				$scope.done = true;
+				$modalInstance.close(type);
+			});
+		} else if (type === "Watchlist") {
+			mjBackend.deleteWatchlist(movie.info.pk)
+			.success(function() {
+				$scope.process = false;
+				$scope.done = true;
+				$modalInstance.close(type);
+			});
+		}
 	};
 
 	$scope.cancel = function() {

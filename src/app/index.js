@@ -38,11 +38,18 @@ angular.module('newMj', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ui.
       	url: '/user/:userId/journal',
       	templateUrl: 'app/journal/journal.html',
       	controller: 'JournalCtrl'
+      })
+
+
+      .state('watchlist', {
+        url: '/user/:userId/watchlist',
+        templateUrl: 'app/watchlist/watchlist.html',
+        controller: 'WatchlistCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
 
-    
+
   })
 ;
 

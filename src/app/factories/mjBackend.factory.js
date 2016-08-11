@@ -69,12 +69,12 @@ angular.module('newMj')
 
 		mjBackend.postScreening = function(movieId) {
 			var req = {
-		        method: 'POST',
-		        url: baseUrl + 'screening/',
-		        data: JSON.stringify({ movie_id: movieId}),
-		        headers: {'Content-Type': 'application/json'}
-		    };
-      		return $http(req);
+	        method: 'POST',
+	        url: baseUrl + 'screening/',
+	        data: JSON.stringify({ movie_id: movieId}),
+	        headers: {'Content-Type': 'application/json'}
+	    };
+  		return $http(req);
 		};
 
 		mjBackend.deleteScreening = function(screeningId) {
@@ -84,6 +84,29 @@ angular.module('newMj')
 			};
 			return $http(req);
 		};
+
+		/* Watchlist */
+		mjBackend.getWatchlist = function(id) {
+			return $http.jsonp(baseUrl + 'user/' + id + '/watchlist/?' + callback);
+		}
+
+		mjBackend.postWatchlist = function(movieId) {
+			var req = {
+				method: 'POST',
+				url: baseUrl + 'watchlist_entry/',
+				data: JSON.stringify({movie_id: movieId}),
+				headers: {'Content-Type': 'application/json'}
+			};
+			return $http(req);
+		}
+
+		mjBackend.deleteWatchlist = function(watchlistId) {
+			var req = {
+				method: 'DELETE',
+				url : baseUrl + 'watchlist_entry/' + watchlistId + '/'
+			};
+			return $http(req);
+		}
 
 		/* Movies */
 		mjBackend.getMovie = function(movieId) {

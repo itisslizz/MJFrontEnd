@@ -1,6 +1,6 @@
 "use strict";
 angular.module('newMj').run(function($rootScope, $modal, $state) {
-  $rootScope.openDelete = function(movie) {
+  $rootScope.openDelete = function(movie, type) {
     var modalInstance = $modal.open({
       templateUrl: 'app/components/modals/delete/deleteModal.html',
       controller: 'DeleteModalCtrl',
@@ -9,7 +9,7 @@ angular.module('newMj').run(function($rootScope, $modal, $state) {
           return movie;
         },
         type: function () {
-          return 'Journal';
+          return type;
         }
       }
     });

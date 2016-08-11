@@ -13,6 +13,15 @@ angular.module('newMj')
 		});
 	};
 
+	$scope.addWatchlist = function() {
+		$scope.process = true;
+		mjBackend.postWatchlist(movie.tmdb.id)
+		.success(function() {
+			$scope.process = false;
+			$scope.done = true;
+		})
+	};
+
 	$scope.cancel = function() {
 		$modalInstance.dismiss('cancel');
 	};
