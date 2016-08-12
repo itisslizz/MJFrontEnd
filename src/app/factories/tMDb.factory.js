@@ -7,17 +7,17 @@ angular.module('newMj')
 		return {
 			imageUrl : function(url, quality) {
 				if (url===undefined)
-					return 'http://sierrafire.cr.usgs.gov/images/loading.gif'
+					return 'http://image.tmdb.org/t/p/w500/xIdvbiFzAsMRuszywTBlBtaoDNY.jpg'
 				return imgBaseUrl + quality + url;
 			},
 			searchMovie : function(query) {
-				return $http.jsonp(baseUrl + 'search/movie?api_key=' + 
-					apiKey + '&query=' + query + 
+				return $http.jsonp(baseUrl + 'search/movie?api_key=' +
+					apiKey + '&query=' + query +
 					'&search_type=ngram&callback=JSON_CALLBACK');
 			},
 			searchPerson : function(query) {
-				return $http.jsonp(baseUrl + 'search/person?api_key=' + 
-					apiKey + '&query=' + query + 
+				return $http.jsonp(baseUrl + 'search/person?api_key=' +
+					apiKey + '&query=' + query +
 					'&search_type=ngram&callback=JSON_CALLBACK');
 			}
 		};

@@ -20,6 +20,15 @@ angular.module('newMj')
         });
       };
 
+      $scope.$watch("journal.results", function(newjournal, oldjournal) {
+        for (var i = 0; i < newjournal.length; i++) {
+          if ($scope.journal.results[i].tmdb) {
+            $scope.journal.results[i].poster_url = tMDb.imageUrl(
+              $scope.journal.results[i].tmdb.poster_path,'w500');
+          }
+        }
+      });
+
       $scope.tMDb = tMDb;
 
   });

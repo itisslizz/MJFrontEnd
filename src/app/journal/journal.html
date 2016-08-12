@@ -9,24 +9,20 @@
       </div>
     </div>
   </div>
-
   <div class="row">
-    <div class="large-4 medium-6 small-12 columns" ng-repeat="movie in journal.results">
-      <div class="row">
-        <div class="small-12 columns">
-          <div class="time">
-            <h5>{{movie.info.fields.time | date : 'MMMM d, yyyy, hh:mm'}}</h5>
-          </div>
-          <div class="overlay-container">
-          <img class="poster" ng-src="{{tMDb.imageUrl(movie.tmdb.poster_path, 'w500')}}" />
-          <div class="overlay">
-            <h3>{{movie.tmdb.title}}</h3>
-            <h4>{{movie.tmdb.release_date | date : 'yyyy'}}</h4>
-            <button class="button alert" ng-disabled="owner.pk !== user.pk" ng-click="openDeleteModal(movie)">Delete</button><br>
-            <button class="button success" ng-click="openAdd(movie)">Add</button><br>
-            <button class="button" ng-click="openTrailer(movie)">Trailer</button>
-          </div>
-          </div>
+    <div class="wrapper" ng-repeat="movie in journal.results">
+      <div class="main" back-img="{{movie.poster_url}}">
+        <div class="time">
+          <h5>{{movie.info.fields.time | date : 'MMMM d, yyyy, hh:mm'}}</h5>
+        </div>
+        <div class="overlay-container">
+        <!--<img class="poster" ng-src="{{tMDb.imageUrl(movie.tmdb.poster_path, 'w500')}}" />-->
+        <div class="overlay">
+          <h3>{{movie.tmdb.title}}</h3>
+          <h4>{{movie.tmdb.release_date | date : 'yyyy'}}</h4>
+          <button class="button alert" ng-disabled="owner.pk !== user.pk" ng-click="openDeleteModal(movie)">Delete</button><br>
+          <button class="button success" ng-click="openAdd(movie)">Add</button><br>
+          <button class="button" ng-click="openTrailer(movie)">Trailer</button>
         </div>
       </div>
     </div>

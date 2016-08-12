@@ -20,6 +20,15 @@ angular.module('newMj')
         });
       };
 
+      $scope.$watch("watchlist.results", function(newWatchlist, oldWatchlist) {
+        for (var i = 0; i < newWatchlist.length; i++) {
+          if ($scope.watchlist.results[i].tmdb) {
+            $scope.watchlist.results[i].poster_url = tMDb.imageUrl(
+              $scope.watchlist.results[i].tmdb.poster_path,'w500');
+          }
+        }
+      });
+
       $scope.tMDb = tMDb;
 
   });
